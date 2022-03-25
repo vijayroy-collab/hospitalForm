@@ -1,0 +1,32 @@
+.addNewBtn{
+    border-radius:100px !important;
+    height:40px;
+    width:40px;
+    position: absolute;
+    bottom: -13%;
+    
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .addNewBtn {
+        bottom: -36%;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .addNewBtn {
+        bottom: -19%;
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .addNewBtn {
+        bottom: -29%;
+    }
+  }
+  @media screen and (max-width: 720px) {
+    .addNewBtn {
+        bottom: -29%;
+    }
+  }
