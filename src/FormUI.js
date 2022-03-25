@@ -74,6 +74,7 @@ const FormUI = () => {
                     data[index][question].answer?.check.push(answer?.check)
                 }
             } else {
+                console.log('answer.text',answer.text)
                 data[index][question].answer.text = answer.text
             }
         } else {
@@ -100,7 +101,7 @@ const FormUI = () => {
 
                     </div>
 
-                    <form>
+                    <form onSubmit={(e) => e.preventDefault()}>
                         <div className="form-group">
                             <textarea name="desc1" cols="30" rows="3" readOnly className='form-control'></textarea>
                         </div>
@@ -140,9 +141,9 @@ const FormUI = () => {
                                     <span style={{ marginRight: 20 }}><input type="checkbox" checked={value?.question5?.answer?.check?.includes('Under standing')} onClick={(e) => changeHandler('question5', { check: "Under standing" }, index)} /> Under standing{" "}</span><br /><br />
                                     <span style={{ marginRight: 20 }}><input type="checkbox" checked={value?.question5?.answer?.check?.includes('In walking')} onClick={(e) => changeHandler('question5', { check: "In walking" }, index)} /> In walking{" "}</span><br /><br />
                                 </div>
-                                <div className='col-lg-6'>
-                                    <textarea name="desc1" cols="5" rows="3" placeholder='ghdfxdgdxgd' value={value?.question5?.answer?.text} onChange={(e) => console.log(e.target.value)} className='form-control'></textarea>
-                                </div>
+                                {/* <div className='col-lg-6'>
+                                    <input name="desc1" type='text' rows="3" placeholder='ghdfxdgdxgd' value={value?.question5?.answer?.text}   onChange={(e) => changeHandler('question5',{text:e.target.value},index)} className='form-control' />
+                                </div> */}
                             </div>
                         </div>
                         <div className="form-group">
@@ -186,7 +187,7 @@ const FormUI = () => {
                                        {Object.keys(values)?.map((ques,j)=>{
                                            return (
                                                <td key={j}>
-                                                   {ques=='question5'?values[ques]?.answer?.check?.join(", "):values[ques]?.answer}
+                                                   {ques=='question5'?`${values[ques]?.answer?.check?.join(", ")}`:values[ques]?.answer}
                                                </td>
                                            )
                                        })}
@@ -194,7 +195,7 @@ const FormUI = () => {
                                )
                             }):null
                         }
-                                {/* i==4?<tr key={i}><td>{values[`question${i+1}`]?.answer?.check?.join(", ")}{", "}{values[`question${i+1}`]?.answer?.text}</td></tr>:<tr key={i}><td>{values[`question${i+1}`]?.answer}</td></tr> */}
+                        
                     
                 </table>
             </div>
